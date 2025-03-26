@@ -37,13 +37,13 @@
       const operator = event.target.operator.value;
       let ans = 0;
       if (isNaN(num1) || isNaN(num2)) {
-        console.log("Error :(");
-        alert("Error :(");
+        console.log("Error");
+        alert("Error");
         return;
       }
       if (num1 < 0 || num2 < 0) {
-        console.log("Error :(");
-        alert("Error :(");
+        console.log("Error");
+        alert("Error");
         return;
       } else if (operator == "+") {
         ans = num1 + num2;
@@ -52,13 +52,25 @@
       } else if (operator == "*") {
         ans = num1 * num2;
       } else if (operator == "/") {
-        ans = num1 / num2;
+        if (num2 === 0) {
+            console.log("Error");
+            alert("Error");
+            return;
+        } else {
+            ans = num1 / num2;
+        }
       } else if (operator == "%") {
-        ans = num1 % num2;
-      }
+        if (num2 === 0) {
+            console.log("Error");
+            alert("Error");
+            return;
+        } else {
+            ans = num1 % num2;
+        }
+    }
       if (isNaN(ans)) {
-        console.log("Vegeta!! It's Over 9000!");
-        alert("Vegeta!! It's over 9000!");
+        console.log("It's Over 9000!");
+        alert("It's Over 9000!");
       } else {
         console.log(ans);
         alert(ans);

@@ -32,41 +32,58 @@
     </div>
   </body>
   <script>
-    $(document).ready(() => {
-      const check = document.cookie;
-      let ft_list = $("#ft_list");
-      $("#create").click(() => {
-        let txt = prompt("Please Enter TO DO LIST :");
-        const name = new Date().getTime();
-        document.cookie = `${name}=${txt}`;
-        let list = $("<div></div>").text(txt);
-        list.click(() => {
-          const check = confirm("Do you want to delete??");
-          if (check) {
-            list.remove();
-            document.cookie =
-              name + "=; expires=Mon, 01 Jan 2026 00:00:00 UTC;";
-          }
-        });
-        ft_list.prepend(list);
-      });
-      if (check.length > 0) {
-        const cookie = check.split(";");
-        cookie.forEach((element) => {
-          let list = $("<div></div>").text(element.split("=")[1]);
-          list.click(() => {
-            const check = confirm("Do you want to delete??");
-            if (check) {
-              list.remove();
-              document.cookie =
-                element.split("=")[0] +
-                "=; expires=Mon, 01 Jan 2026 00:00:00 UTC;";
+   $(document).ready(() => {
+        let ft_list = $("#ft_list");
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        function setCookie(name, value) {
+            document.cookie = `${name}=${value}; expires=Mon, 01 Jan 2026 00:00:00 UTC; path=/`;
+        }
+
+        function deleteCookie(name) {
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        }
+
+        $("#create").click(() => {
+            let txt = prompt("Please Enter TO DO LIST :");
+            if (txt) {
+                const name = new Date().getTime();
+                setCookie(name, encodeURIComponent(txt));
+                let list = $("<div></div>").text(txt);
+                list.click(() => {
+                    const check = confirm("Do you want to delete??");
+                    if (check) {
+                        list.remove();
+                        deleteCookie(name);
+                    }
+                });
+                ft_list.prepend(list);
             }
-          });
-          ft_list.prepend(list);
         });
-        
-      }
+
+        const cookies = document.cookie.split(';');
+        cookies.forEach(cookie => {
+            const parts = cookie.split('=');
+            const name = parts[0].trim();
+            const value = parts[1];
+            if (name && value) {
+                const decodedValue = decodeURIComponent(value);
+                let list = $("<div></div>").text(decodedValue);
+                list.click(() => {
+                    const check = confirm("Do you want to delete??");
+                    if (check) {
+                        list.remove();
+                        deleteCookie(name);
+                    }
+                });
+                ft_list.prepend(list);
+            }
+        });
     });
-  </script>
+</script>
 </html>

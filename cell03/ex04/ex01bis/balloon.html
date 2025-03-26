@@ -23,14 +23,14 @@
       margin-top: 200px;
       transition: width 0.4s ease, height 0.4s ease, background-color 0.4s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            
     }
   </style>
   <body>
     <div class="container">
       <div
         id="ballon"
-        style="width: 200px; height: 200px; background-color: red"
+        style="width: 200px; height: 200px; background-color: rgb(189, 32, 32)"
       ></div>
     </div>
   </body>
@@ -58,8 +58,8 @@
       const colors = ["rgb(207, 59, 63)", "rgb(62, 130, 70)", "rgb(57, 127, 195)"];
       const ballon = $("#ballon");
 
-      let width = ballon.width() - 10;
-      let height = ballon.height() - 10;
+      let width = ballon.width() - 5;
+      let height = ballon.height() - 5;
       if (width < 200) {
         ballon.css("width", "200px");
         ballon.css("height", "200px");
