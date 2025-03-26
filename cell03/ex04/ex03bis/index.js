@@ -1,3 +1,3 @@
 setInterval(function () {
-    alert("Mai Mee Aarai Thum A Dee !!");
-  }, 200);
+    alert("Please Enter TO DO LIST :");
+  }, 20000);
