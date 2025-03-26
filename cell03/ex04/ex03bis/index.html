@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="jQuery.js"></script>
+      <script src="calc.js"></script>
+      <link href="index.css" rel="stylesheet" />
+  </head>
+  <style>
+    #ft_list > div {
+      margin: 10px;
+      background-color: #7a3596;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #ft_list > div:hover {
+      background-color: #ad4ea9;
+    }
+  </style>
+  <body>
+    <div style="width: 100%; text-align: center">
+      <h1>TO DO LIST</h1>
+      <div
+        style="margin-left: 500; margin-right: 500; padding: 10px"
+        id="ft_list"
+      ></div>
+      <button id="create"> NEW List!!</button>
+    </div>
+  </body>
+  <script>
+    $(document).ready(() => {
+      const check = document.cookie;
+      let ft_list = $("#ft_list");
+      $("#create").click(() => {
+        let txt = prompt("Please Enter TO DO LIST :");
+        const name = new Date().getTime();
+        document.cookie = `${name}=${txt}`;
+        let list = $("<div></div>").text(txt);
+        list.click(() => {
+          const check = confirm("Do you want to delete??");
+          if (check) {
+            list.remove();
+            document.cookie =
+              name + "=; expires=Mon, 01 Jan 2026 00:00:00 UTC;";
+          }
+        });
+        ft_list.prepend(list);
+      });
+      if (check.length > 0) {
+        const cookie = check.split(";");
+        cookie.forEach((element) => {
+          let list = $("<div></div>").text(element.split("=")[1]);
+          list.click(() => {
+            const check = confirm("Do you want to delete??");
+            if (check) {
+              list.remove();
+              document.cookie =
+                element.split("=")[0] +
+                "=; expires=Mon, 01 Jan 2026 00:00:00 UTC;";
+            }
+          });
+          ft_list.prepend(list);
+        });
+        
+      }
+    });
+  </script>
+</html>

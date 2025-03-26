@@ -5,8 +5,8 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-color: #f0f0f0; /* สีพื้นหลังเริ่มต้น */
-  transition: background-color 0.5s ease; /* เพิ่มความสมูทในการเปลี่ยนสี */
+  background-color: #f0f0f0; 
+  transition: background-color 0.5s ease; 
 }
 div {
   text-align: center;
@@ -14,20 +14,20 @@ div {
 #change {
   padding: 12px 24px;
   font-size: 18px;
-  background-color: #7c4db9; /* สีเขียว */
+  background-color: #7c4db9; 
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease, transform 0.2s ease; /* เพิ่มความสมูทและลูกเล่น */
+  transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 #change:hover {
-  background-color: #2d1c55; /* สีเขียวเข้มขึ้นเมื่อ hover */
-  transform: scale(1.05); /* ปุ่มใหญ่ขึ้นเล็กน้อยเมื่อ hover */
+  background-color: #2d1c55; 
+  transform: scale(1.05); 
 }
 #change:active {
-  background-color: #9562cf; /* สีเขียวเข้มขึ้นเมื่อคลิก */
-  transform: scale(0.95); /* ปุ่มเล็กลงเล็กน้อยเมื่อคลิก */
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* ลดเงาเมื่อคลิก */
+  background-color: #9562cf; 
+  transform: scale(0.95); 
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2); 
 }
