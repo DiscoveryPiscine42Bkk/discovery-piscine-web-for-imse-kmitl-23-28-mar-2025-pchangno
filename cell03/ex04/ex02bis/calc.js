@@ -1,3 +1,3 @@
 setInterval(function () {
-    alert("Please, use me... Kakarot!! ");
+    alert("Please, use me... ");
   }, 30000);
