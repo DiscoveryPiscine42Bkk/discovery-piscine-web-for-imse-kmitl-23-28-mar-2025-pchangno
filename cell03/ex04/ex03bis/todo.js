@@ -1,8 +1,7 @@
 $(document).ready(function() {
   const $ft_list = $("#ft_list");
-  const name = "mycookie";
- 
-  function createTodo() {
+  const name = "My Cookie";
+   function createTodo() {
       const txt = prompt("Please Enter TO DO LIST :");      
       if (txt) {
           const cookie = Cookies.get(name);
