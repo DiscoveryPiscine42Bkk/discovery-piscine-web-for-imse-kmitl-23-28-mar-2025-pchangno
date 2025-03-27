@@ -1,0 +1,56 @@
+header {
+    background-image: url(https://images.pexels.com/photos/3784221/pexels-photo-3784221.jpeg?cs=srgb&dl=pexels-dmitry-demidov-515774-3784221.jpg&fm=jpg);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: calc(no-repeat);
+    color: white;
+    box-shadow: #000000;
+}
+
+/*ขนาดรูปโปร*/
+header img {
+    width: 150px;
+    height: auto;
+    border-radius: 70%;
+    border: 5px solid #fff;
+    margin-bottom: 10px;
+}
+nav {
+    background-color: #4d2553;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.233);
+}
+
+/*ตัว ui เอง*/
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+
+nav ul li a {
+    color: #fafafa;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #31313162;
+}

@@ -1,3 +1,4 @@
+
 /*ตัวอักษรทั้งหมดที่ไม่ใช่หัวข้อ*/
 body {
     font-family: 'Georgia', serif;
@@ -20,13 +21,15 @@ header {
     background-position: center;
     background-size: cover;
     background-repeat: calc(no-repeat);
+    color: white;
+    box-shadow: #000000;
 }
 
 /*ขนาดรูปโปร*/
 header img {
     width: 150px;
     height: auto;
-    border-radius: 50%;
+    border-radius: 70%;
     border: 5px solid #fff;
     margin-bottom: 10px;
 }
