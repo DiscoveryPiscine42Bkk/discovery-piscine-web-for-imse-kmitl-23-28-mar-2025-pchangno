@@ -4,13 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.js"></script>
-      <script src="calc.js"></script>
-  </head>
-  <style>
-    #ft_list > div {
+    <title>TODO List</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <style>
+      #ft_list > div {
       margin: 10px;
       background-color: #7a3596;
       padding: 10px;
@@ -36,7 +34,7 @@
 
     body{
       font-family: 'Georgia',sans-serif;
-      background-color: rgb(255, 191, 191);
+      background-color: rgb(233, 218, 195);
       display: flex;
       justify-content: center;
       min-height: 100vh;
@@ -64,70 +62,18 @@
             margin-bottom: 20px;
             text-align: center;
         }
-  </style>
+   </style>
+ </head>
+    
+
   <body>
     <div style="width: 100%; text-align: center">
       <h1>TO DO LIST</h1>
       <div
-        style="margin-left: 500; margin-right: 500; padding: 30px" id="ft_list"
-      ></div>
+        style="margin-left: 500; margin-right: 500; padding: 30px" id="ft_list"></div>
       <button id="create"> NEW List!!</button>
     </div>
+    <script src="todo.js"></script>
   </body>
-  <script>
-   $(document).ready(() => {
-        let ft_list = $("#ft_list");
-
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
-
-        function setCookie(name, value) {
-            document.cookie = `${name}=${value}; expires=Mon, 01 Jan 2026 00:00:00 UTC; path=/`;
-        }
-
-        function deleteCookie(name) {
-            document.cookie = `${name}=; expires=Thu, 01 Jan 2026 00:00:00 UTC; path=/;`;
-        }
-
-        $("#create").click(() => {
-            let txt = prompt("Please Enter TO DO LIST :");
-            if (txt) {
-                const name = new Date().getTime();
-                setCookie(name, encodeURIComponent(txt));
-                let list = $("<div></div>").text(txt);
-                list.click(() => {
-                    const check = confirm("Do you want to delete??");
-                    if (check) {
-                        list.remove();
-                        deleteCookie(name);
-                    }
-                });
-                ft_list.prepend(list);
-            }
-        });
-
-        const cookies = document.cookie.split(';');
-        cookies.forEach(cookie => {
-            const parts = cookie.split('=');
-            const name = parts[0].trim();
-            const value = parts[1];
-            if (name && value) {
-                const decodedValue = decodeURIComponent(value);
-                let list = $("<div></div>").text(decodedValue);
-                list.click(() => {
-                    const check = confirm("Do you want to delete??");
-                    if (check) {
-                        list.remove();
-                        deleteCookie(name);
-                    }
-                });
-                ft_list.prepend(list);
-            }
-        });
-    });
-</script>
 </html>
 
