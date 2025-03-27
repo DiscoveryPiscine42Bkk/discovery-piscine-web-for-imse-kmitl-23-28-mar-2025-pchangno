@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script
-      src="jQuery.js" ></script>
+      src="https://code.jquery.com/jquery-3.7.1.js" ></script>
     <link href="calc.css" rel="stylesheet" />
     <script src="calc.js"></script>
   </head>
@@ -41,6 +41,12 @@
         alert("Error");
         return;
       }
+      if (isNaN(_value_1) || isNaN(_value_2) )
+        {
+            console.log("Error");
+            alert("Error");
+            return;
+        }
       if (num1 < 0 || num2 < 0) {
         console.log("Error");
         alert("Error");
@@ -75,6 +81,8 @@
         console.log(ans);
         alert(ans);
       }
+      
     });
   </script>
 </html>
+
