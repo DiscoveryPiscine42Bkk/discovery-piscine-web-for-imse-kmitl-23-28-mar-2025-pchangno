@@ -24,12 +24,14 @@ setInterval(function () {
       ans = num1 * num2;
     } else if (operator == "/") {
       ans = num1 / num2;
+
     } else if (operator == "%") {
       ans = num1 % num2;
+      
     }
     if (isNaN(ans)) {
-      console.log("Vegeta!! It’s over 9000!");
-      alert("Vegeta!! It’s over 9000!");
+      console.log("It’s over 9000!");
+      alert("It’s over 9000!");
     } else {
       console.log(ans);
       alert(ans);
